@@ -18,9 +18,15 @@ import org.springframework.web.client.RestTemplate;
 @EntityScan("com")
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ServiceApplication {
+public class EurekaConsumerApplication {
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(EurekaConsumerApplication.class,args);
     }
 }

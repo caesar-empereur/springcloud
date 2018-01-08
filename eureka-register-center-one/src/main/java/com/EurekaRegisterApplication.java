@@ -15,9 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EntityScan("com")
 @EnableEurekaServer
 @SpringBootApplication
-public class EurekaOneApplication {
+public class EurekaRegisterApplication {
     
     public static void main(String[] args) {
-        SpringApplication.run(EurekaOneApplication.class, args);
+        SpringApplication.run(EurekaRegisterApplication.class, args);
     }
 }

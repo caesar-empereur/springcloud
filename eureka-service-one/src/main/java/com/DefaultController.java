@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by yang on 2018/1/6.
  */
 @RestController
-@RequestMapping(value = "/eureka-one")
 public class DefaultController extends BaseController {
     
     @Autowired
@@ -19,7 +18,7 @@ public class DefaultController extends BaseController {
     @RequestMapping(value = "/service", method = RequestMethod.GET)
     public void service() {
         
-        log.info("eureka-1: " + discoveryClient.getServices());
+        log.info("eureka-service: " + discoveryClient.getServices());
     }
     
 }
