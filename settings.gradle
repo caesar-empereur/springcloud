@@ -1,7 +1,6 @@
 rootProject.name = 'springcloud'
-include 'eureka-register-center-two'
-include 'eureka-register-center-one'
 include 'eureka-service-one'
 include 'eureka-service-two'
 include 'eureka-service-consumer'
+include 'eureka-register-center'
 

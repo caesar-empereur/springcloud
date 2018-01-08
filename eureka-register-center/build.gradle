@@ -28,9 +28,9 @@ apply plugin: 'io.spring.dependency-management'
 sourceCompatibility = 1.8
 
 
-//jar {
-//    baseName = 'eureka-1'
-//}
+jar {
+    baseName = 'eureka-register-center'
+}
 
 dependencies {
 
