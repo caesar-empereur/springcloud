@@ -1,5 +1,6 @@
 eureka
 使用不同配置文件来启动springboot
 java -jar eureka-register-center-1.0.war --spring.profiles.active=one
+java -jar eureka-service-1.0.war --spring.profiles.active=one
 one 是 application-one.properties 配置文件的属性
 
