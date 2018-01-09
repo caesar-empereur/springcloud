@@ -21,7 +21,7 @@ public class FeignController {
     
     @RequestMapping(value = "/feign", method = RequestMethod.GET)
     public void feign() {
-        feignService.ribbon();
+        feignService.feign();
     }
     
 }
