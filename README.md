@@ -1,5 +1,6 @@
 #springcloud
-eureka部分说明
+
+**eureka部分说明**
 使用不同配置文件来启动springboot
 java -jar eureka-register-center-1.0.war --spring.profiles.active=one
 java -jar eureka-service-1.0.war --spring.profiles.active=one
@@ -11,3 +12,7 @@ ribbon 客户端其实就是一个对象，维护一个可用服务的列表，�
 ，因此就是客户端负载均衡，与 服务端负载均衡(nginx)有区别
 在 EurekaConsumerController 这个类里面的 restTemplate.getForEntity("http://EUREKA-SERVICE/service", String.class)
 实现客户端负载均衡
+
+**fiegn部分说明**
+访问地址
+http://localhost:9005/feign
