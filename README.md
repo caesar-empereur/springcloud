@@ -13,6 +13,9 @@ ribbon 客户端其实就是一个对象，维护一个可用服务的列表，�
 在 EurekaConsumerController 这个类里面的 restTemplate.getForEntity("http://EUREKA-SERVICE/service", String.class)
 实现客户端负载均衡
 
+eureka-register-center部分说明
+http://localhost:8081  http://localhost:8082
+
 **eureka-service-consumer部分说明**
 http://localhost:9000/consumer
 
