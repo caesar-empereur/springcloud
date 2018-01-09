@@ -4,4 +4,5 @@ include 'eureka-register-center'
 include 'eureka-service'
 include 'hystrix-turbine'
 include 'hystrix-dashboard'
+include 'feign'
 
