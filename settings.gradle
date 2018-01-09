@@ -2,3 +2,6 @@ rootProject.name = 'springcloud'
 include 'eureka-service-consumer'
 include 'eureka-register-center'
 include 'eureka-service'
+include 'hystrix-turbine'
+include 'hystrix-dashboard'
+

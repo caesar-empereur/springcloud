@@ -27,27 +27,11 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 sourceCompatibility = 1.8
 
-jar {
-    baseName = 'eureka-service-consumer'
-}
-
 dependencies {
-
     compile "org.springframework.boot:spring-boot-starter-web:$version_spring_boot"
     compile "org.springframework.boot:spring-boot-starter-actuator:$version_spring_boot"
-    compile "org.springframework.boot:spring-boot-devtools"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka-server:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-ribbon:$version_spring_cloud"
     compile "org.springframework.cloud:spring-cloud-starter-hystrix:$version_spring_cloud"
     compile "org.springframework.cloud:spring-cloud-starter-hystrix-dashboard:$version_spring_cloud"
-
-    //page
-    compile "io.swagger:swagger-annotations:1.5.9"
-    compile "io.swagger:swagger-models:1.5.9"
-    compile "io.springfox:springfox-swagger2:2.5.0"
-    compile "io.springfox:springfox-swagger-ui:2.5.0"
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$version_spring_boot"
 
     testCompile "junit:junit:4.11"
     testCompile "org.mockito:mockito-all:1.10.19"

@@ -1,5 +1,7 @@
 package com;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.ObservableExecutionMode;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,18 @@ public class EurekaConsumerController {
     private RestTemplate restTemplate;
     
     @RequestMapping(value = "/consumer", method = RequestMethod.GET)
+    @HystrixCommand(fallbackMethod = "fallback", observableExecutionMode = ObservableExecutionMode.EAGER, ignoreExceptions = RuntimeException.class)
     public void service() {
-        log.info(restTemplate.getForEntity("http://EUREKA-SERVICE/service", String.class));
+        log.info(restTemplate.getForEntity("http://EUREKA-SERVICE/service",
+                                           String.class));
+//        throw new RuntimeException("execution exception");
     }
+    
+    // 这里是实现服务降级的方法,就是服务调用失败时的备用处理
+    private void fallback(Throwable e) {
+        log.info("hystix callback ");
+        //这里是调用出现异常时 拿到具体的异常类型
+        e.printStackTrace();
+    }
+    
 }
