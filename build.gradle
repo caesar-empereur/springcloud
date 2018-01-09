@@ -31,20 +31,36 @@ subprojects{
         options.encoding = 'UTF-8'
     }
 
+    sourceSets {
+        main {
+            java {
+                srcDir 'src'
+            }
+        }
+        test {
+            java {
+                srcDir 'test'
+            }
+        }
+    }
+
 //    configurations {
 //        all*.exclude group: 'commons-httpclient'
 //    }
 
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-web:$version_spring_boot"
-        compile "org.springframework.boot:spring-boot-devtools"
+        compile "org.springframework.boot:spring-boot-starter-security:$version_spring_boot"
         compile "org.springframework.boot:spring-boot-starter-actuator:$version_spring_boot"
+        compile "org.springframework.boot:spring-boot-starter-logging:$version_spring_boot"
+        compile "org.springframework.boot:spring-boot-starter-thymeleaf:$version_spring_boot"
+
+        compile "org.springframework.boot:spring-boot-devtools"
         //page
         compile "io.swagger:swagger-annotations:1.5.9"
         compile "io.swagger:swagger-models:1.5.9"
         compile "io.springfox:springfox-swagger2:2.5.0"
         compile "io.springfox:springfox-swagger-ui:2.5.0"
-        compile "org.springframework.boot:spring-boot-starter-thymeleaf:$version_spring_boot"
 
         testCompile "junit:junit:4.11"
         testCompile "org.mockito:mockito-all:1.10.19"
