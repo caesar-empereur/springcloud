@@ -5,4 +5,5 @@ include 'eureka-service'
 include 'hystrix-turbine'
 include 'hystrix-dashboard'
 include 'feign'
+include 'zuul'
 
