@@ -1,35 +1,20 @@
-Java
-  Java 语法, 常用设计模式, io, socket, nio 多线程, 高并发(concurrent包), 
-  以及异步,事件编程, junit单元测试, mockito模拟测试, jcoco测试报告工具
-
-前端
-html,js, ajax, bootstrap, angular.js, vue.js, jquery, elementUI, webpack打包工具
-
-数据库
-mysql, oracle, redis(缓存的基本使用以及在高并发下的应用), 
-mongodb(非关系型数据库的基本使用，以及在项目中的实际应用)
-
-中间件
-包括消息中间件 RocketMq, ActiveMQ的实际应用，topic, queue模式的应用
-nginx Http 代理工具
-
-网络
-http协议， https规范， Oauth2.0第三方授权机制, netty NIO框架
-
-工具
-gradle 构建工具(包括多项目多模块构建), linux 常用命令(简单的应用部署维护脚本)
-git, IDEA, UML, fiddle, postman, javaFX, scenebuilder
-
-框架
-spring, springMVC, springboot, spring-data(jpa,redis,mongodb等集成), 
-springcloud(eureka,hystrix,ribbon,zuul,feign等集成) 分布式微服务治理框架
-
+开发技能
+基础
+常用设计模式, io, socket, nio 多线程, 高并发(concurrent包), 
+以及异步,事件编程, junit, mockito, jcoco
+前端html,js, ajax, bootstrap, angular.js, vue.js, jquery, elementUI, webpack
+数据库mysql, oracle, redis, mongodb
+中间件RocketMq, ActiveMQ, nginx
+网络http协议， https规范， Oauth2.0, netty NIO
+工具gradle 构建工具, linux, git, IDEA, UML, fiddle, postman, javaFX, scenebuilder
+框架spring, springMVC, springboot, springdata, springcloud分布式微服务治理框架
 自认为的加分项(学习过的书)
+
 数据结构(数据结构-Java语言描述 第二版)
 Jvm原理(深入理解Java虚拟机>)
-Java多线程高并发(Java多线程编程核心技术> <Java并发编程实战>)
-Tomcat原理(<tomcat 深入剖析> <<图解Http 第二版>>)
-Spring原理，包括 ioc, aop mvc的实现原理(<spring 技术内幕> <spring 源码深度解读>)
+多线程高并发(Java多线程编程核心技术  Java并发编程核心与框架)
+Tomcat原理(Tomcat  深度剖析)
+Spring源码(Spring源码深度解读  Spring技术内幕)
 
 
 项目经验
