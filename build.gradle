@@ -1,7 +1,7 @@
 group 'springcloud'
 version '1.0'
 
-subprojects{
+subprojects {
 
     repositories {
         repositories {
@@ -10,7 +10,7 @@ subprojects{
             maven { url "http://repo.spring.io/libs-milestone" }
             maven { url "http://repo.spring.io/plugins-release/" }
             maven { url "http://repo.spring.io/milestone" }
-            maven { url "http://central.maven.org/maven2/"}
+            maven { url "http://central.maven.org/maven2/" }
         }
     }
 
@@ -21,10 +21,11 @@ subprojects{
             maven { url "http://repo.spring.io/libs-milestone" }
             maven { url "http://repo.spring.io/plugins-release/" }
             maven { url "http://repo.spring.io/milestone" }
-            maven { url "http://central.maven.org/maven2/"}
+            maven { url "http://central.maven.org/maven2/" }
         }
         dependencies {
             classpath("org.springframework.boot:spring-boot-gradle-plugin:$version_spring_boot")
+            classpath "io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE"
         }
     }
 
@@ -57,10 +58,6 @@ subprojects{
             }
         }
     }
-
-//    configurations {
-//        all*.exclude group: 'commons-httpclient'
-//    }
 
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-web:$version_spring_boot"
