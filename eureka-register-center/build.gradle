@@ -13,8 +13,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$version_spring_boot"
     compile "org.springframework.boot:spring-boot-starter-actuator:$version_spring_boot"
     compile "org.springframework.boot:spring-boot-devtools"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka-server:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:$version_spring_cloud"
 
     //page
     compile "io.swagger:swagger-annotations:1.5.9"

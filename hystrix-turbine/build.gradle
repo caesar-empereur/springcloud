@@ -9,7 +9,7 @@ jar {
 }
 
 dependencies {
-    compile "org.springframework.cloud:spring-cloud-starter-turbine:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-turbine:$version_spring_cloud"
 }
 dependencyManagement {
     imports {

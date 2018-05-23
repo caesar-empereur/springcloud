@@ -9,11 +9,11 @@ jar {
 }
 
 dependencies {
-    compile "org.springframework.cloud:spring-cloud-starter-eureka:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka-server:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-ribbon:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-hystrix:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-hystrix-dashboard:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-ribbon:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard:$version_spring_cloud"
 }
 dependencyManagement {
     imports {
