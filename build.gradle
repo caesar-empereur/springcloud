@@ -24,8 +24,8 @@ subprojects {
             maven { url "http://central.maven.org/maven2/" }
         }
         dependencies {
-            classpath("org.springframework.boot:spring-boot-gradle-plugin:$version_spring_boot")
-            classpath "io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE"
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:$version_spring_boot")    //这是针对 spring-cloud的
+            classpath "io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE" //这是针对 consul 的
         }
     }
 

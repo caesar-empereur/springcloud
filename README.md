@@ -23,7 +23,7 @@ http://localhost:9000/consumer
 consul 说明
 页面管理 http://localhost:8500
 consul 模块里面的依赖管理 spring-cloud-consul-dependencies 与其他模块的 spring-cloud-dependencies 不一样
-注意
+猜测是 consul 与 spring-cloud 不是同一套环境，只是 spring-cloud 集成了 consul 
 dependencyManagement {
     imports {
         mavenBom 'org.springframework.cloud:spring-cloud-consul-dependencies:2.0.0.RC1'
