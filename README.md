@@ -1,5 +1,6 @@
 **springcloud 工程说明文档**
 
+consul 分支现在是稳定版本的分支
 
 **eureka-register-center 部分说明**
 `使用不同配置文件来启动springboot
