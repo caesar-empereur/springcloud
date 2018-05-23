@@ -1,11 +1,10 @@
-#springcloud
+**springcloud 工程说明文档**
 
 ****eureka-register-center 部分说明****
 使用不同配置文件来启动springboot
 执行顺序 
 java -jar eureka-register-center-1.0.war --spring.profiles.active=one
 java -jar eureka-register-center-1.0.war --spring.profiles.active=two
-启动一个时会出现服务找不到的情况, 2个服务都启动就不会了
 然后访问管理页面
 http://localhost:8081  http://localhost:8082
 
