@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -21,8 +21,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.app.exception.BusinessException;
-import com.app.util.JsonUtils;
+//import com.app.exception.BusinessException;
+//import com.app.util.JsonUtils;
 
 /**
  * Created by Administrator on 2018/5/24.
@@ -99,7 +99,7 @@ public class ServiceStatusMonitor implements InitializingBean {
         Map<String, Object> parameter = new HashMap<>(4);
         parameter.put("method", "dingtalk.group.message.send");
         parameter.put("appKey", monitorConfig.getAppKey());
-        parameter.put("body", JsonUtils.toJson(body));
+//        parameter.put("body", JsonUtils.toJson(body));
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -109,15 +109,15 @@ public class ServiceStatusMonitor implements InitializingBean {
                 responseEntity = restTemplate.postForEntity(monitorConfig.getDingdingGateway(),
                                                             httpEntity,
                                                             String.class);
-        Map dingdingResponse = JsonUtils.parseMap(responseEntity.getBody());
-        if ("success".equals(dingdingResponse.get("flag").toString())) {
-            log.info("发送钉钉消息成功, " + String.format("数据中心: %s", datacenter)
-                     + String.format(", 服务名: %s", serviceName));
-        }
-        else {
-            log.info("发送钉钉消息失败, " + String.format("数据中心: %s", datacenter)
-                     + String.format(", 服务名: %s", serviceName));
-        }
+//        Map dingdingResponse = JsonUtils.parseMap(responseEntity.getBody());
+//        if ("success".equals(dingdingResponse.get("flag").toString())) {
+//            log.info("发送钉钉消息成功, " + String.format("数据中心: %s", datacenter)
+//                     + String.format(", 服务名: %s", serviceName));
+//        }
+//        else {
+//            log.info("发送钉钉消息失败, " + String.format("数据中心: %s", datacenter)
+//                     + String.format(", 服务名: %s", serviceName));
+//        }
     }
 
     //获取服务状态结果
@@ -130,8 +130,8 @@ public class ServiceStatusMonitor implements InitializingBean {
                 responseEntity = restTemplate.getForEntity(url, List.class);
         Map map = null;
         try {
-            map = JsonUtils.parseMap(JsonUtils.toJson(responseEntity.getBody()
-                                                                    .get(0)));
+//            map = JsonUtils.parseMap(JsonUtils.toJson(responseEntity.getBody()
+//                                                                    .get(0)));
         }
         catch (Exception e) {
             log.error("配置文件的服务名出错：" + serviceName, e);
@@ -139,13 +139,13 @@ public class ServiceStatusMonitor implements InitializingBean {
         }
         int index = 0;
         String name = getValueFromMap(map, MAP_CHECK_KEY, MAP_SERVICE_NAME_KEY, index);
-        if (StringUtils.isBlank(name)) {
-            name = getValueFromMap(map, MAP_CHECK_KEY, MAP_SERVICE_NAME_KEY, ++index);
-        }
-        if (StringUtils.isBlank(name)) {
-            log.error(EXCEPTION_TEXT);
-            throw new RuntimeException(EXCEPTION_TEXT);
-        }
+//        if (StringUtils.isBlank(name)) {
+//            name = getValueFromMap(map, MAP_CHECK_KEY, MAP_SERVICE_NAME_KEY, ++index);
+//        }
+//        if (StringUtils.isBlank(name)) {
+//            log.error(EXCEPTION_TEXT);
+//            throw new RuntimeException(EXCEPTION_TEXT);
+//        }
         String status = getValueFromMap(map, MAP_CHECK_KEY, "Status", index);
         String datacenter = getValueFromMap(map, MAP_NODE_KEY, MAP_DATA_CENTER_KEY, 0);
         return new ServiceStatusResponse(serviceName, datacenter, "passing".equals(status));
@@ -154,7 +154,7 @@ public class ServiceStatusMonitor implements InitializingBean {
     //解析服务状态结果
     private String getValueFromMap(Map map, String key, String subkey, Integer index) {
         if (map == null || map.isEmpty()) {
-            throw new BusinessException("");
+//            throw new BusinessException("");
         }
         String value = null;
         try {
@@ -167,12 +167,12 @@ public class ServiceStatusMonitor implements InitializingBean {
         }
         catch (Exception e) {
             log.error(EXCEPTION_TEXT, e);
-            throw new BusinessException(EXCEPTION_TEXT);
+//            throw new BusinessException(EXCEPTION_TEXT);
         }
-        if (!subkey.equals("ServiceName") && StringUtils.isBlank(value)) {
-            log.error(EXCEPTION_TEXT);
-            throw new BusinessException(EXCEPTION_TEXT);
-        }
+//        if (!subkey.equals("ServiceName") && StringUtils.isBlank(value)) {
+//            log.error(EXCEPTION_TEXT);
+//            throw new BusinessException(EXCEPTION_TEXT);
+//        }
         return value;
     }
     
