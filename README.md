@@ -19,7 +19,6 @@
 * java -jar eureka-service-1.0.war --spring.profiles.active=one
 * java -jar eureka-service-1.0.war --spring.profiles.active=two
 
-
 ##eureka-service-consumer 也就是 ribbon 部分说明
 ```
 http://localhost:9000/consumer
