@@ -56,6 +56,12 @@ dependencyManagement 参考 官网的例子，一般都会有 current 的版本
 jar 的版本 参考 springcloud 官网的例子和 maven 库里面的对应的版本
 ```
 
+##整个工程的编译, 启动
+```
+在工程的根目录下 执行 gradle clean bootWar ,执行完之后会下载依赖的JAR包，没有错误的
+话会在每个模块的 /build/libs 目录中生成一个可启动的 war 包
+将对应的 war 包启动就可以了, 执行 java -jar ***.war 启动
+```
 
 
 
