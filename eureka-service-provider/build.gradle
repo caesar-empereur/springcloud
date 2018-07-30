@@ -1,0 +1,19 @@
+group 'springcloud'
+version "$version_project"
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'eureka-service'
+}
+
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:$version_spring_cloud"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:$version_spring_cloud"
+}
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$version_spring_cloud_dependencies"
+    }
+}
