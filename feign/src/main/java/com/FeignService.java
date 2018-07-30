@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * 注解被扫描都后会创建一个对应服务的 ribbon 客户端 因此可以配置
  */
-@FeignClient(value = "EUREKA-SERVICE", fallback = FeignServiceImpl.class)
+@FeignClient(value = "eureka-service-provider", fallback = FeignServiceImpl.class)
 public interface FeignService {
     
     /**

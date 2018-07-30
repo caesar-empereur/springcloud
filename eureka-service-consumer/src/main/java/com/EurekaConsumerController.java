@@ -25,7 +25,7 @@ public class EurekaConsumerController {
     @RequestMapping(value = "/consumer", method = RequestMethod.GET)
     @HystrixCommand(fallbackMethod = "fallback", observableExecutionMode = ObservableExecutionMode.EAGER, ignoreExceptions = RuntimeException.class)
     public void service() {
-        log.info(restTemplate.getForEntity("http://EUREKA-SERVICE/service",
+        log.info(restTemplate.getForEntity("http://eureka-service-provider/service",
                                            String.class));
 //        throw new RuntimeException("execution exception");
     }
