@@ -1,0 +1,15 @@
+group 'springcloud'
+version '1.0'
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar{
+    baseName='common'
+}
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$version_spring_cloud_dependencies"
+//        mavenBom 'org.springframework.cloud:spring-cloud-consul-dependencies:2.0.0.RC1'
+    }
+}
