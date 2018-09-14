@@ -8,6 +8,9 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author: yangyingyang
  * @date: 2018/9/11.
  */
-@FeignClient(name = ProviderServiceName.SERVICE_NAME)
+@FeignClient(name = ProviderServiceName.SERVICE_NAME
+        , fallbackFactory = CommentServiceFallbackFactory.class
+)
 public interface CommentService extends CommentBridge {
+    
 }

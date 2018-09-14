@@ -3,13 +3,13 @@ package com.controller;
 import com.model.Comment;
 import com.service.CommentService;
 import com.view.CommentParameter;
+import com.view.CommentView;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -33,5 +33,11 @@ public class CommentController {
         return commentService.page(parameter);
     }
 
-
+    @PostMapping(value = "/add")
+    @ApiOperation(value = "新增评论")
+    public void add(@ApiParam(value = "请求体") @RequestBody CommentView commentView){
+        Comment comment = new Comment();
+        BeanUtils.copyProperties(commentView,comment);
+        commentService.save(comment);
+    }
 }

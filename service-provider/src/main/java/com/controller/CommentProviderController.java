@@ -1,9 +1,11 @@
 package com.controller;
 
 import com.bridge.CommentBridge;
+import com.exception.BizException;
 import com.model.Comment;
 import com.repository.CommentRepository;
 import com.view.CommentParameter;
+import com.view.CommentView;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,25 +23,31 @@ import java.util.UUID;
  */
 @RestController
 public class CommentProviderController implements CommentBridge {
-
+    
     @Resource
     private CommentRepository commentRepository;
-
+    
     @Override
     public Page<Comment> page(@RequestBody CommentParameter parameter) {
         return commentRepository.page(parameter);
     }
-
+    
+    @Override
+    public void save(Comment comment) {
+        throw new BizException("provider service 抛出的异常");
+//        commentRepository.save(comment);
+    }
+    
     @GetMapping("/insert")
-    public void insert(){
-        while (true){
+    public void insert() {
+        while (true) {
             Comment comment = new Comment();
             comment.setCreateTime(new Date());
             comment.setContent("heheda");
-            comment.setContentOwner(UUID.randomUUID().toString().replace("-",""));
-            comment.setOwner(UUID.randomUUID().toString().replace("-",""));
+            comment.setContentOwner(UUID.randomUUID().toString().replace("-", ""));
+            comment.setOwner(UUID.randomUUID().toString().replace("-", ""));
             commentRepository.save(comment);
         }
     }
-
+    
 }

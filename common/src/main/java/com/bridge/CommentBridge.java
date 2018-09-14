@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.model.Comment;
 import com.view.CommentParameter;
 
-import java.util.List;
-
 /**
  * @Description
  * @author: yangyingyang
@@ -20,4 +18,7 @@ public interface CommentBridge {
     
     @PostMapping(value = "/page")
     Page<Comment> page(@RequestBody CommentParameter parameter);
+
+    @PostMapping(value = "/save")
+    void save(@RequestBody Comment comment);
 }
