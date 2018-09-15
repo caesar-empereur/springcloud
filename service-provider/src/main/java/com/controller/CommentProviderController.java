@@ -34,8 +34,7 @@ public class CommentProviderController implements CommentBridge {
     
     @Override
     public void save(Comment comment) {
-        throw new BizException("provider service 抛出的异常");
-//        commentRepository.save(comment);
+        commentRepository.save(comment);
     }
     
     @GetMapping("/insert")

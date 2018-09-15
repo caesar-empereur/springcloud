@@ -48,9 +48,8 @@ public class GlobalExceptionHandler implements HandlerExceptionResolver, Ordered
                                          HttpServletResponse response,
                                          @Nullable Object handler,
                                          Exception ex) {
-        log.error("捕获到异常 ");
-        log.error(ManagementFactory.getRuntimeMXBean().getName());
-        log.error(Thread.currentThread().getName());
+        log.error("进程pid: " + ManagementFactory.getRuntimeMXBean().getName());
+        log.error("线程: " + Thread.currentThread().getName());
         
         ModelAndView modelAndView = new ModelAndView();
         MappingJackson2JsonView mappingJackson2JsonView = new MappingJackson2JsonView();

@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author: yangyingyang
  * @date: 2018/9/13.
  */
-@Component
+//@Component
 @Slf4j
 public class CommentServiceFallbackFactory implements
                                            feign.hystrix.FallbackFactory<CommentService> {
@@ -32,8 +32,8 @@ public class CommentServiceFallbackFactory implements
             
             @Override
             public void save(Comment comment) {
-                log.error(ManagementFactory.getRuntimeMXBean().getName());
-                log.error(Thread.currentThread().getName());
+                log.error("进程pid: " + ManagementFactory.getRuntimeMXBean().getName());
+                log.error("线程: " + Thread.currentThread().getName());
                 throw new BizException(message);
             }
         };
