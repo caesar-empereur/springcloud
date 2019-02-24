@@ -2,7 +2,7 @@
 
 #### consul 分支现在是稳定版本的分支
 
-##eureka-register-center 部分说明
+## eureka-register-center 部分说明
 ```
 使用不同配置文件来启动springboot
 执行顺序 
@@ -12,19 +12,19 @@
 * 然后访问管理页面http://localhost:8081  http://localhost:8082
 
 
-##eureka-service-provider 服务提供者 部分说明
+## eureka-service-provider 服务提供者 部分说明
 ```
 执行顺序
 ```
 * java -jar eureka-service-provider-1.0.war --spring.profiles.active=one
 * java -jar eureka-service-provider-1.0.war --spring.profiles.active=two
 
-##eureka-service-consumer 也就是 ribbon 部分说明
+## eureka-service-consumer 也就是 ribbon 部分说明
 ```
 http://localhost:9000/consumer
 ```
 
-##consul 说明
+## consul 说明
 ```
 页面管理 http://localhost:8500
 consul 模块里面的依赖管理 spring-cloud-consul-dependencies 与其他模块的 spring-cloud-dependencies 不一样
@@ -36,7 +36,7 @@ dependencyManagement {
 }
 ```
 
-##fiegn部分说明
+## fiegn部分说明
 
 * 访问地址 http://localhost:9005/feign
 * 调试时，启动5个spring 应用, 2 个注册中心(高可用，互相注册), 2个服务提供者(互相注册到注册中心)
@@ -48,14 +48,14 @@ dependencyManagement {
 
 
 
-##整个工程的模块依赖管理
+## 整个工程的模块依赖管理
 ```
 关键的有2部分: jar 的版本 和 dependencyManagement 的版本
 dependencyManagement 参考 官网的例子，一般都会有 current 的版本
 jar 的版本 参考 springcloud 官网的例子和 maven 库里面的对应的版本
 ```
 
-##整个工程的编译, 启动
+## 整个工程的编译, 启动
 ```
 在工程的根目录下 执行 gradle clean bootWar ,执行完之后会下载依赖的JAR包，没有错误的
 话会在每个模块的 /build/libs 目录中生成一个可启动的 war 包
