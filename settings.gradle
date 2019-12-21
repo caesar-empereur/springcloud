@@ -3,6 +3,5 @@ include 'service-consumer'
 include 'register-center'
 include 'service-provider'
 include 'zuul'
-include 'monitor'
 include 'common'
 

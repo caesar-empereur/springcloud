@@ -18,7 +18,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Created by yang on 2018/1/8.
  */
 @ComponentScan("com")
-@EntityScan("com")
 @SpringCloudApplication
 @EnableFeignClients
 @EnableSwagger2

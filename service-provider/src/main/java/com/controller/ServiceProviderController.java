@@ -1,19 +1,17 @@
 package com.controller;
 
-import com.bridge.CommentBridge;
-import com.exception.BizException;
 import com.model.Comment;
 import com.repository.CommentRepository;
+import com.service.FeignService;
 import com.view.CommentParameter;
-import com.view.CommentView;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,7 +20,8 @@ import java.util.UUID;
  * @date: 2018/9/10.
  */
 @RestController
-public class CommentProviderController implements CommentBridge {
+@RequestMapping("/service-provider")
+public class ServiceProviderController implements FeignService {
     
     @Resource
     private CommentRepository commentRepository;
@@ -33,7 +32,7 @@ public class CommentProviderController implements CommentBridge {
     }
     
     @Override
-    public void save(Comment comment) {
+    public void save(@RequestBody Comment comment) {
         commentRepository.save(comment);
     }
     

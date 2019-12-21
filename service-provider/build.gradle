@@ -10,12 +10,14 @@ jar {
 
 dependencies {
     compile project(':common')
+    compile project(':service-consumer')
 
     compile "org.springframework.cloud:spring-cloud-starter:$version_spring_cloud"
     compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:$version_spring_cloud"
     compile "org.springframework.cloud:spring-cloud-starter-consul-all:$version_spring_cloud"
     compile "org.springframework.cloud:spring-cloud-starter-openfeign:$version_spring_cloud"
 
+    compile "com.alibaba.cloud:spring-cloud-alibaba-seata:2.1.1.RELEASE"
 }
 dependencyManagement {
     imports {
