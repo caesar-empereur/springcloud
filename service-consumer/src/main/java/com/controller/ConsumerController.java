@@ -1,17 +1,15 @@
 package com.controller;
 
-import com.model.Comment;
-import com.service.FeignService;
-import com.view.CommentParameter;
-import com.view.CommentView;
+import com.feign.ServiceProviderFeign;
+import com.model.Order;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Description
@@ -20,23 +18,15 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping(value = "/comment")
-@Api(description = "评论接口")
+@Api(value = "评论接口")
 public class ConsumerController {
 
     @Resource
-    private FeignService feignService;
+    private ServiceProviderFeign feignService;
 
-    @GetMapping(value = "/page")
-    @ApiOperation(value = "分页查询")
-    public Page<Comment> page(@ModelAttribute CommentParameter parameter) {
-        return feignService.page(parameter);
-    }
-
-    @PostMapping(value = "/add")
-    @ApiOperation(value = "新增评论")
-    public void add(@ApiParam(value = "请求体") @RequestBody CommentView commentView){
-        Comment comment = new Comment();
-        BeanUtils.copyProperties(commentView,comment);
-//        feignService.save(comment);
+    @ApiOperation(value = "获取order数据")
+    @GetMapping("/order/get")
+    public List<Order> message(){
+        return feignService.getOrderList();
     }
 }

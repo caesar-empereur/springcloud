@@ -1,7 +1,4 @@
 rootProject.name = 'springcloud'
 include 'service-consumer'
-include 'register-center'
 include 'service-provider'
-include 'zuul'
-include 'common'
 

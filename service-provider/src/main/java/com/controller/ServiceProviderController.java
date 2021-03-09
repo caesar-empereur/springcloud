@@ -1,18 +1,15 @@
 package com.controller;
 
-import com.model.Comment;
-import com.repository.CommentRepository;
-import com.service.FeignService;
-import com.view.CommentParameter;
-import org.springframework.data.domain.Page;
+import com.model.Order;
+import com.repository.OrderRepository;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
 /**
  * @Description
@@ -20,32 +17,19 @@ import java.util.UUID;
  * @date: 2018/9/10.
  */
 @RestController
-@RequestMapping("/service-provider")
-public class ServiceProviderController implements FeignService {
-    
+@RequestMapping("/provider")
+@Slf4j
+public class ServiceProviderController {
+
     @Resource
-    private CommentRepository commentRepository;
-    
-    @Override
-    public Page<Comment> page(@RequestBody CommentParameter parameter) {
-        return commentRepository.page(parameter);
-    }
-    
-    @Override
-    public void save(@RequestBody Comment comment) {
-        commentRepository.save(comment);
-    }
-    
-    @GetMapping("/insert")
-    public void insert() {
-        while (true) {
-            Comment comment = new Comment();
-            comment.setCreateTime(new Date());
-            comment.setContent("heheda");
-            comment.setContentOwner(UUID.randomUUID().toString().replace("-", ""));
-            comment.setOwner(UUID.randomUUID().toString().replace("-", ""));
-            commentRepository.save(comment);
-        }
+    private OrderRepository orderRepository;
+
+    @ApiOperation(value = "获取order数据")
+    @GetMapping("/order/get")
+    public List<Order> message(){
+        log.info("接收到请求");
+
+        return orderRepository.findAll();
     }
     
 }

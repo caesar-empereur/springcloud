@@ -9,15 +9,14 @@ jar {
 }
 
 dependencies {
-    compile project(':common')
-    compile project(':service-consumer')
+    compile "org.springframework.cloud:spring-cloud-starter"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+    compile "org.springframework.cloud:spring-cloud-starter-consul-all"
+    compile "org.springframework.cloud:spring-cloud-starter-openfeign"
 
-    compile "org.springframework.cloud:spring-cloud-starter:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-consul-all:$version_spring_cloud"
-    compile "org.springframework.cloud:spring-cloud-starter-openfeign:$version_spring_cloud"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "mysql:mysql-connector-java:5.1.39"
 
-    compile "com.alibaba.cloud:spring-cloud-alibaba-seata:2.1.1.RELEASE"
 }
 dependencyManagement {
     imports {

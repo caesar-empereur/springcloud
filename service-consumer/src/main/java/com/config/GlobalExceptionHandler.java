@@ -1,13 +1,10 @@
 package com.config;
 
-import java.lang.management.ManagementFactory;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.lang3.StringUtils;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.netflix.hystrix.exception.HystrixRuntimeException;
+import feign.FeignException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -18,12 +15,11 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.netflix.hystrix.exception.HystrixRuntimeException;
-
-import feign.FeignException;
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.lang.management.ManagementFactory;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description
@@ -66,7 +62,7 @@ public class GlobalExceptionHandler implements HandlerExceptionResolver, Ordered
         else if (ex instanceof HystrixRuntimeException) {
             Throwable throwable = ex.getCause();
             if (throwable instanceof FeignException) {
-                String content = StringUtils.substringBetween(throwable.getMessage(), "{", "}");
+                String content = throwable.getMessage();
                 JsonObject jsonpObject = new JsonParser().parse("{" + content + "}")
                                                          .getAsJsonObject();
                 errorMessage = jsonpObject.get("message").getAsString();
