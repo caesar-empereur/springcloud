@@ -28,7 +28,7 @@ public class ServiceProviderController {
     @GetMapping("/order/get")
     public List<Order> message(){
         log.info("接收到请求");
-
+//        throw new RuntimeException("peovider 抛异常");
         return orderRepository.findAll();
     }
     

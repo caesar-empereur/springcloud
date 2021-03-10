@@ -17,7 +17,7 @@ import java.util.List;
  * @date: 2018/9/11.
  */
 @RestController
-@RequestMapping(value = "/comment")
+@RequestMapping(value = "/consumer")
 @Api(value = "评论接口")
 public class ConsumerController {
 

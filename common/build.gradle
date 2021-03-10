@@ -5,12 +5,9 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-    baseName = 'service-consumer'
+    baseName = 'common'
 }
 
-dependencies {
-    compile project(":common")
-}
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:$version_spring_cloud_dependencies"

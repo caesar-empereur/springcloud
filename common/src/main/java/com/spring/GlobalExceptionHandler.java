@@ -1,4 +1,4 @@
-package com.config;
+package com.spring;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -26,7 +26,7 @@ import java.util.Map;
  * @author: yangyingyang
  * @date: 2018/9/14.
  */
-@Component
+//@Component
 @Slf4j
 public class GlobalExceptionHandler implements HandlerExceptionResolver, Ordered {
     
