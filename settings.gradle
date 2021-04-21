@@ -1,5 +1,5 @@
 rootProject.name = 'springcloud'
 include 'service-consumer'
-include 'service-provider'
+include 'service-provider-a'
+include 'service-provider-b'
 include 'common'
-

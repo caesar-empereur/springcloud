@@ -25,7 +25,7 @@ public class SpringbootFilterConfig {
     public FilterRegistrationBean registFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new SpringbootRequestFilter());
-        registration.addUrlPatterns("/consumer/*", "/provider/*");
+        registration.addUrlPatterns("/consumer/*", "/provider-a/*", "/provider-b/*");
         registration.setName("RequestFilter");
         registration.setOrder(1);
         return registration;
@@ -37,7 +37,7 @@ public class SpringbootFilterConfig {
         public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws
                                                           IOException,
                                                           ServletException {
-            log.info("---------------------springboot 拦截器拦截，当前线程 " + Thread.currentThread().getName());
+//            log.info("---------------------springboot 拦截器拦截，当前线程 " + Thread.currentThread().getName());
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
             String value = httpServletRequest.getHeader(TRACE_ID);
             if (value != null) {
