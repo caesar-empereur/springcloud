@@ -3,3 +3,5 @@ include 'service-consumer'
 include 'service-provider-a'
 include 'service-provider-b'
 include 'common'
+include 'gateway'
+

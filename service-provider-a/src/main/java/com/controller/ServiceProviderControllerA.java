@@ -40,7 +40,7 @@ public class ServiceProviderControllerA {
     public List<Order> message(){
         log.info("接收到请求, 开始延时");
         try {
-            Thread.sleep(60000);
+            Thread.sleep(6000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();

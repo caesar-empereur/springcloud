@@ -1,0 +1,23 @@
+group 'springcloud'
+version "$version_project"
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'gateway'
+}
+
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-starter-gateway:$version_spring_cloud"
+}
+configurations {
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
+    all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-data-jpa'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$version_spring_cloud_dependencies"
+    }
+}

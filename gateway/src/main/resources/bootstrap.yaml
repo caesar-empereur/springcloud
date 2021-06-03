@@ -1,0 +1,44 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: gateway
+
+  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        enabled: true
+#        register: true
+#        service-name: ${spring.application.name}
+#        prefer-ip-address: true
+#        instance-id: ${spring.application.name}-${server.port}
+#        register-health-check: true
+#        health-check-interval: 5s
+#      config:
+#        enabled: true
+    kubernetes:
+      discovery:
+        service-name: gateway
+        enabled: true
+        all-namespaces: true
+
+    gateway:
+      enabled: true
+      routes:
+        - id: route
+#          uri: lb://service-provider-a
+          uri: http://localhost:8082/provider-a/order/list
+          predicates:
+            - Path=/provider-a/**
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+#      enabled: true
