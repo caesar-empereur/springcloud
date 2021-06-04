@@ -1,13 +1,10 @@
 package com.spring;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -63,9 +60,7 @@ public class GlobalExceptionHandler implements HandlerExceptionResolver, Ordered
             Throwable throwable = ex.getCause();
             if (throwable instanceof FeignException) {
                 String content = throwable.getMessage();
-                JsonObject jsonpObject = new JsonParser().parse("{" + content + "}")
-                                                         .getAsJsonObject();
-                errorMessage = jsonpObject.get("message").getAsString();
+                errorMessage = content;
             }
         }
         else {
