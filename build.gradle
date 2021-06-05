@@ -51,15 +51,13 @@ subprojects {
     dependencies {
         compile "org.springframework.cloud:spring-cloud-starter"
         compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+        compile "org.springframework.cloud:spring-cloud-starter-netflix-ribbon"
         compile "org.springframework.cloud:spring-cloud-starter-openfeign"
 
-        compile "org.springframework.cloud:spring-cloud-starter-kubernetes"
-        compile "org.springframework.cloud:spring-cloud-kubernetes-ribbon"
-        compile "org.springframework.cloud:spring-cloud-kubernetes-hystrix"
-        compile "org.springframework.cloud:spring-cloud-kubernetes-config"
-
+        compile "org.springframework.cloud:spring-cloud-starter-kubernetes-all"
 
         compile "org.springframework.boot:spring-boot-starter-web"
+
         compile "org.springframework.boot:spring-boot-starter-actuator"
         compile "org.springframework.boot:spring-boot-starter-logging"
         compile "org.springframework.boot:spring-boot-starter-thymeleaf"
