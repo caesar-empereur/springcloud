@@ -17,7 +17,6 @@ spring:
       routes:
         - id: route
           uri: lb://service-provider-a
-#          uri: http://localhost:8082/provider-a/order/list
           predicates:
             - Path=/provider-a/**
       discovery:
